@@ -13,13 +13,13 @@
 為1130moli_comments_parsed3.csv標記"roles"欄位後的資料，標記出了"KOC"、"KOS"、"KOF"、"other"，並且去除掉了主播(KOL)的留言
 
 ## **Embedding模型** 
-**bge_m3_embedding.py** :   
-**text2vec_embedding.py** :   
+''' **bge_m3_embedding.py** : '''   
+''' **text2vec_embedding.py** :   '''
 
 ## **訓練SVM模型**
 由於SVM適合高維度分析，embedding後維度有1024，因此選用此作為初步分類模型  
-**train_bge_svm.py**    
-**train_text2vec_svm.py**    
+'''' **train_bge_svm.py** '''    
+''' **train_text2vec_svm.py** '''    
 SVM模型結果如下:    
 
 | 類別                  | 指標              | **bge-m3 + SVM** | **text2vec-large + SVM** | 較佳模型               |
