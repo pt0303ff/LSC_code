@@ -15,6 +15,7 @@
 ## **Embedding模型** 
 ``` bge_m3_embedding.py ```  
 ``` text2vec_embedding.py   ```  
+**npy** 資料夾為embedding後向量檔案，同時也切割好訓練集、測試集供訓練分類模型使用
 
 ## **訓練SVM模型**
 由於SVM適合高維度分析，embedding後維度有1024，因此選用此作為初步分類模型  
