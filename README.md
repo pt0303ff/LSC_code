@@ -12,15 +12,15 @@
 ## **1130moli_comments_parsed4_noL.csv**
 為1130moli_comments_parsed3.csv標記"roles"欄位後的資料，標記出了"KOC"、"KOS"、"KOF"、"other"，並且去除掉了主播(KOL)的留言
 
-## **Embedding模型**
-**bge_m3_embedding.py** : 
-**text2vec_embedding.py** : 
+## **Embedding模型** 
+**bge_m3_embedding.py** :   
+**text2vec_embedding.py** :   
 
 ## **訓練SVM模型**
-由於SVM適合高維度分析，embedding後維度有1024，因此選用此作為初步分類模型
-**train_bge_svm.py**  
-**train_text2vec_svm.py**  
-SVM模型結果如下:  
+由於SVM適合高維度分析，embedding後維度有1024，因此選用此作為初步分類模型  
+**train_bge_svm.py**    
+**train_text2vec_svm.py**    
+SVM模型結果如下:    
 
 | 類別                  | 指標              | **bge-m3 + SVM** | **text2vec-large + SVM** | 較佳模型               |
 | ------------------- | --------------- | ---------------- | ------------------------ | ------------------ |
@@ -42,13 +42,13 @@ SVM模型結果如下:
 
 
 **⭐ 比較重點總結**
-bge-m3 在 KOC（顧客）分類明顯優於 text2vec  
-顯示其在區分「純詢問購買型」語句上較具優勢。  
-text2vec-large 在 KOS（發話/分享者）表現明顯更好  
+- bge-m3 在 KOC（顧客）分類明顯優於 text2vec  
+  顯示其在區分「純詢問購買型」語句上較具優勢。  
+ - text2vec-large 在 KOS（發話/分享者）表現明顯更好  
 表示 text2vec 對資訊性、開話題、評論式句型辨識更敏感。  
-KOF（粉絲）兩者表現都極高（~0.98–0.99）  
-粉絲型語句語氣明顯，兩模型都能穩定辨識。  
-整體 accuracy 完全一致：0.94  
+- KOF（粉絲）兩者表現都極高（~0.98–0.99）  
+- 粉絲型語句語氣明顯，兩模型都能穩定辨識。  
+- 整體 accuracy 完全一致：0.94  
 → 兩模型皆適合用於直播留言角色分類。  
-若需要更均衡的多類別表現 → text2vec-large + SVM 更佳  
-若要最準確的 KOC 與 KOF 區分 → bge-m3 + SVM 更適合  
+- 若需要更均衡的多類別表現 → text2vec-large + SVM 更佳  
+- 若要最準確的 KOC 與 KOF 區分 → bge-m3 + SVM 更適合  
