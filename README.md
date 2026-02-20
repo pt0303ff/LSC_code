@@ -57,8 +57,9 @@
 
 
 
-## **bge_test.py**
+##26/02/20 簡單測試模型
+```bge_test.py```
 測試bge模型實際分類效果用，輸入留言>輸出分類結果
-## **text2vec_test.py**
+```text2vec_test.py```
 測試text2vec模型實際分類效果用，輸入留言>輸出分類結果
 
