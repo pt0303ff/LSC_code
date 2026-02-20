@@ -53,4 +53,12 @@
 - 整體 accuracy 完全一致：0.94  
 → 兩模型皆適合用於直播留言角色分類。  
 - 若需要更均衡的多類別表現 → text2vec-large + SVM 更佳  
-- 若要最準確的 KOC 與 KOF 區分 → bge-m3 + SVM 更適合  
+- 若要最準確的 KOC 與 KOF 區分 → bge-m3 + SVM 更適合
+
+
+
+## **bge_test.py**
+測試bge模型實際分類效果用，輸入留言>輸出分類結果
+## **text2vec_test.py**
+測試text2vec模型實際分類效果用，輸入留言>輸出分類結果
+
