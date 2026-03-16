@@ -2,7 +2,7 @@ import pandas as pd
 import re
 
 #df = pd.read_csv("fb_live_comments7.csv")
-df = pd.read_csv("1130moli_comments.csv")
+df = pd.read_csv("0313moli_fb_comment.csv")
 
 def normalize_time(t):
     """
@@ -22,6 +22,7 @@ def normalize_time(t):
 
 def parse_message(msg):
     lines = [l.strip() for l in str(msg).split("\n") if l.strip() != ""]
+
     if len(lines) < 3:
         return None, None, str(msg).strip()
 
@@ -29,7 +30,7 @@ def parse_message(msg):
     time = None
     time_idx = 1
 
-    # 找時間：支援 mm:ss 或 hh:mm:ss
+    # 找時間
     for idx in range(1, min(4, len(lines))):
         m = re.search(r'(\d{1,2}:\d{2}(?::\d{2})?)', lines[idx])
         if m:
@@ -40,12 +41,20 @@ def parse_message(msg):
     if time is None:
         return name, None, ""
 
-    # ⭐ 正規化時間
     time = normalize_time(time)
 
     # 留言內容
-    content_lines = lines[time_idx+1:-1]
-    content = "\n".join(content_lines).strip()
+    content_lines = lines[time_idx+1:]
+
+    filtered = []
+    for l in content_lines:
+        if re.match(r'\d+天', l):
+            continue
+        if l in ["讚", "回覆", "查看更多", "Like", "Reply"]:
+            continue
+        filtered.append(l)
+
+    content = "\n".join(filtered).strip()
 
     return name, time, content
 
@@ -61,6 +70,6 @@ parsed_df = parsed_df.sort_values(by="time_dt")
 
 # 移除排序欄位後輸出
 #parsed_df.drop(columns=["time_dt"]).to_csv("fb_live_comments7_parsed_sorted.csv", index=False)
-parsed_df.drop(columns=["time_dt"]).to_csv("1130moli_comments_parsed3.csv", index=False)
+parsed_df.drop(columns=["time_dt"]).to_csv("0313moli_comments_parsed4.csv", index=False)
 
 print("Parsed comment are saved")
