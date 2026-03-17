@@ -73,8 +73,9 @@
 
 ## 加入0313直播資料
 資料總共為1462筆留言，經過bge 與SVM訓練後結果為 :  
-=== Classification Report (LinearSVC, bge-m3) ===
-
+- bge-m3 + SVM  
+ === Classification Report (LinearSVC, bge-m3) ===  
+      
               precision    recall  f1-score   support
 
          KOC     0.9537    0.9717    0.9626       106
@@ -82,13 +83,34 @@
          KOS     0.5714    0.4444    0.5000         9
        other     0.5833    0.7368    0.6512        19
 
-    accuracy                          0.9249       293
-    macro avg     0.7706    0.7741    0.7681       293
-    weighted avg  0.9290    0.9249    0.9260       293
+       accuracy                          0.9249       293
+       macro avg     0.7706    0.7741    0.7681       293
+       weighted avg  0.9290    0.9249    0.9260       293
 
-=== Confusion Matrix ===  
+   === Confusion Matrix ===    
+      
+          [[103   2   0   1]  
+          [  2 150   2   5]  
+          [  0   1   4   4]  
+          [  3   1   1  14]]  
 
-    [[103   2   0   1]  
-    [  2 150   2   5]  
-    [  0   1   4   4]  
-    [  3   1   1  14]]  
+- text2vec + SVM  
+ === Classification Report (LinearSVC, text2vec-large) ===  
+      
+               precision    recall  f1-score   support
+
+         KOC     0.9130    0.9906    0.9502       106
+         KOF     0.9867    0.9308    0.9579       159
+         KOS     0.3333    0.1111    0.1667         9
+       other     0.6000    0.7895    0.6818        19
+
+       accuracy                         0.9181       293
+       macro avg    0.7083    0.7055    0.6892       293
+       weighted avg 0.9149    0.9181    0.9129       293
+    
+    === Confusion Matrix (SVM, text2vec-large) ===  
+
+         [[105   0   1   0]
+         [  5 148   1   5]
+         [  3   0   1   5]
+         [  2   2   0  15]]
