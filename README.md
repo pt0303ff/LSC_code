@@ -69,4 +69,26 @@
 整理同一用戶動態變化並產出:  
 - ```transition.csv``` : 整理所有角色有變換的用戶變化過程  
 - ```user_role_summary.csv``` : 整理該場直播所有用戶被統計的角色  
-- ```role_count.csv``` : 統計KOC、KOF、KOS個別數量  
+- ```role_count.csv``` : 統計KOC、KOF、KOS個別數量
+
+## 加入0313直播資料
+資料總共為1462筆留言，經過bge 與SVM訓練後結果為 :  
+=== Classification Report (LinearSVC, bge-m3) ===
+
+              precision    recall  f1-score   support
+
+         KOC     0.9537    0.9717    0.9626       106
+         KOF     0.9740    0.9434    0.9585       159
+         KOS     0.5714    0.4444    0.5000         9
+       other     0.5833    0.7368    0.6512        19
+
+    accuracy                          0.9249       293
+    macro avg     0.7706    0.7741    0.7681       293
+    weighted avg  0.9290    0.9249    0.9260       293
+
+=== Confusion Matrix ===  
+
+    [[103   2   0   1]  
+    [  2 150   2   5]  
+    [  0   1   4   4]  
+    [  3   1   1  14]]  
