@@ -72,7 +72,7 @@
 - ```role_count.csv``` : 統計KOC、KOF、KOS個別數量
 
 ## 加入0313直播資料
-資料總共為1462筆留言，經過bge 與SVM訓練後結果為 :  
+資料總共為1462筆留言，經過bge 、text2vec embedding與SVM訓練後結果為 :  
 - bge-m3 + SVM  
  === Classification Report (LinearSVC, bge-m3) ===  
       
