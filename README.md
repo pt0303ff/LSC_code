@@ -114,3 +114,12 @@
          [  5 148   1   5]
          [  3   0   1   5]
          [  2   2   0  15]]
+
+## 26/05/07 更改SVM信心度計算方式、評估LLM修正準確率
+```train_bge_svm.py```   
+更新信心度計算方式，使用LinearSVC CalibratedClassifierCV  
+```dynamic_role.py```   
+更新SVM模型以及信心度調用LLM條件，低於閥值、兩信心度差<0.2  
+```eva_LLM_intervantion.py```   
+評估LLM介入修正的準確率，以及原本包含低信心度的準確率，及比較比率  
+
