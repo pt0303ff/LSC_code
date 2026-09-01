@@ -119,7 +119,21 @@
 ```train_bge_svm.py```   
 更新信心度計算方式，使用LinearSVC CalibratedClassifierCV  
 ```dynamic_role3.py```   
-新的版本，更新SVM模型以及信心度調用LLM條件，低於閥值、兩信心度差<0.2  
+新的版本，更新SVM模型以及信心度調用LLM條件，低於閥值0.7  
 ```eva_LLM_intervantion.py```   
 評估LLM介入修正的準確率，以及原本包含低信心度的準確率，及比較比率  
+
+##26/08/20 更新後續驗證程式  
+```0316bge_m3_calibrated_linear_svc_kocfkos.joblib```  
+為最新SVM訓練模型檔案  
+```dynamic_plot.py```  
+分析並畫圖三個LLMs結果  
+<img width="1080" height="500" alt="01_overall_svm_vs_hybrid_accuracy" src="https://github.com/user-attachments/assets/fd25a051-479a-4240-96c4-e82a22d80de1" />
+
+```cali_trans.py```   
+使用結果最佳模型qwen進一步以時間斷分析各角色轉變的結果，並劃出圖，目前0321直播分為六個時間斷分析
+<img width="6257" height="3901" alt="overall_transition_users_calibrated" src="https://github.com/user-attachments/assets/13a93161-7359-43a0-858e-0c7fd3fc6183" />
+
+
+
 
