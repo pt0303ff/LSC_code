@@ -128,12 +128,16 @@
 為最新SVM訓練模型檔案  
 ```dynamic_plot.py```  
 分析並畫圖三個LLMs結果  
-<img width="1080" height="500" alt="01_overall_svm_vs_hybrid_accuracy" src="https://github.com/user-attachments/assets/fd25a051-479a-4240-96c4-e82a22d80de1" />
+<img width="50%" height="50%" alt="01_overall_svm_vs_hybrid_accuracy" src="https://github.com/user-attachments/assets/9d4ed833-9d45-4533-940b-1dce6eec2a3b" />
 
 ```cali_trans.py```   
 使用結果最佳模型qwen進一步以時間斷分析各角色轉變的結果，並劃出圖，目前0321直播分為六個時間斷分析
-<img width="6257" height="3901" alt="overall_transition_users_calibrated" src="https://github.com/user-attachments/assets/13a93161-7359-43a0-858e-0c7fd3fc6183" />
+<img width="50%" height="50%" alt="overall_transition_users_calibrated" src="https://github.com/user-attachments/assets/13a93161-7359-43a0-858e-0c7fd3fc6183" />
 
 
-
+## Summary 使用順序
+1. ```fb_comment2.py``` ```comment_parse.py``` 抓取留言資料，清理並標註
+2. ```bge_m3_embedding.py``` Embedding文字
+3. ```train_bge_svm.py``` 訓練SVM模型
+4. ```dynamic_role3.py``` 主程式運行，並輸出轉換結果及角色統計資料
 
